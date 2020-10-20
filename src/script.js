@@ -32,6 +32,7 @@ function changeName(city) {
 function changeTemp(weatherData) {
   let temp = weatherData.main.temp;
   let tempHeader = document.querySelector("#temperature");
+  celTemperature = weatherData.main.temp;
   tempHeader.innerHTML = `${Math.round(temp)}`;
 }
 
@@ -89,25 +90,21 @@ function renameCel(event) {
   let celsium = document.querySelector("#celsium");
   let farenheit = document.querySelector("#farenheit");
   let temperature = document.querySelector("#temperature");
-  let temperatureValue = document.querySelector("#temperature.value");
-  let celTemperature = Math.round((temperatureValue-32)/1.8);
-
   celsium.innerHTML = "<b>°C";
   farenheit.innerHTML = "°F";
-  temperature.innerHTML = celTemperature;
+  temperature.innerHTML = Math.round(celTemperature);
  }
 
 function renameFar(event) {
   event.preventDefault();
   let farenheit = document.querySelector("#farenheit");
   let celsium = document.querySelector("#celsium");
-  let temperatureValue = document.querySelector("#temperature.value");
   let temperature = document.querySelector("#temperature");
-  let farTemperature = Math.round((temperatureValue * 1.8) + 32);
+  let farTemperature =(celTemperature * 9)/5 + 32;
   
   farenheit.innerHTML = "<b> °F";
   celsium.innerHTML = "°C";
-  temperature.innerHTML = farTemperature;
+  temperature.innerHTML = Math.round(farTemperature);
   }
 
 
@@ -152,6 +149,7 @@ form.addEventListener("submit", search);
 let currentLocationButton = document.querySelector("#current-position");
 currentLocationButton.addEventListener("click", getCurrentLocation);
 
+let celTemperature = null;
 
 let celsium = document.querySelector("#celsium");
 let fahrenheit = document.querySelector("#farenheit");
