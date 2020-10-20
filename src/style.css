@@ -19,6 +19,10 @@
   position: relative;
 }
 
+.forecast-icon {
+  width: 10px;
+}
+
 .body {
   margin: 50px auto;
 }
@@ -36,13 +40,13 @@
   font-weight: bold;
 }
 
-img {
-  width: 250px;
-}
-
 .end .col-2 {
   border: 0.5px solid black;
   border-radius: 2px;
+}
+
+img {
+  width: 250px;
 }
 
 p {

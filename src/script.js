@@ -12,6 +12,33 @@ function search(event) {
   }).catch(error => {
     failedApiCall(error);
   });
+
+  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(dispalyForecast);
+}
+
+function dispalyForecast(response) {
+  let forecastElement = document.querySelector("#forecast");
+  forecastElement.innerHTML = null;
+  let forecast = null;
+
+  for (let index = 0; index < 6; index++) {
+    forecast = response.data.list[index];
+    forecastElement.innerHTML += `
+    <div class="col-2">
+      <h7>
+        ${formatHours(forecast.dt * 1000)}
+      </h7>
+    
+      <div class="weather-forecast-temperature">
+        <strong>
+          ${Math.round(forecast.main.temp_max)}°
+        </strong>
+        ${Math.round(forecast.main.temp_min)}°
+      </div>
+    </div>
+  `;
+  }
 }
 
 
@@ -38,7 +65,7 @@ function changeTemp(weatherData) {
 
 function changeDay (weatherData) {
   document.querySelector("#temp").innerHTML = `Temperature: ${Math.round(
-    weatherData.main.temp
+    weatherData.main.temp_max
   )} °C`;
   document.querySelector(
     "#temp-feel"
@@ -58,7 +85,11 @@ function changeDay (weatherData) {
 }
 
 function changeNight (weatherData) {
-
+ document.querySelector(
+    "#night-temp"
+  ).innerHTML = `Temperature: ${Math.round(
+    weatherData.main.temp_min
+  )} °C`;
 }
 
 
@@ -73,6 +104,10 @@ function searchLocation(position) {
   let apiKey = "17a3051593bacf7917fd288879592ec0";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(renameCurrentCity);
+
+  
+  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(dispalyForecast);
 }
 
 function renameCurrentCity (weatherData) {
@@ -107,7 +142,17 @@ function renameFar(event) {
   temperature.innerHTML = Math.round(farTemperature);
   }
 
-
+function formatHours (timestamp) {
+let date = new Date(timestamp);
+let hours = date.getHours();
+if (hours < 10) {
+  hours = `0${hours}`;
+  let minutes = date.getMinutes();}
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+  return `${hours}:${minutes}`;
+}
 
 let now = new Date();
 let date = now.getDate();
