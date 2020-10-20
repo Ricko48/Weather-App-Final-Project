@@ -1,11 +1,143 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <script
+      src="https://kit.fontawesome.com/242712f238.js"
+      crossorigin="anonymous"
+    ></script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Weather App</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="src/style.css" />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   </head>
+
   <body>
-    Hello World
+    <video autoplay muted loop id="myVideo">
+      <source src="images/sunset.mp4" type="video/mp4" />
+    </video>
+    <div class="app">
+      <div class="heading">
+        <div class="container">
+          <div class="row">
+            <div class="col-2" id="dates">21. August 2020</div>
+            <div class="col-6" id="time">13:26</div>
+            <div class="col-4">
+              <form id="search-form">
+                <input
+                  type="text"
+                  placeholder="Search city"
+                  autocomplete="off"
+                  autofocus="on"
+                  id="search-text-input"
+                />
+                <button type="submit" class="search">
+                  <i class="fas fa-search"></i>
+                </button>
+                <button type="button" id="current-position">
+                  <i class="fas fa-map-marker-alt"></i>
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="body">
+          <div class="container">
+            <div class="row">
+              <div class="col-3">
+                <img src="images/world_map_.png" alt="weather" />
+              </div>
+              <div class="col-3">
+                <h1 id="city">Aarhus</h1>
+                <br />
+                <h2>
+                  <span id="temperature"> <strong>21</strong> </span>
+
+                  <a href="#" class="units" id="celsium"> °C </a> |
+                  <a href="#" class="units" id="farenheit"> °F </a>
+                </h2>
+              </div>
+              <div class="col-3">
+                <h3><i class="fas fa-sun"></i> Day</h3>
+                <br />
+                <div id="day-desc">Sky: Clear</div>
+                <div id="temp">Temperature: 19 °C</div>
+                <div id="temp-feel">Feel temperature: 15 °C</div>
+                <div id="day-hum">Humidity: 47%</div>
+                <div id="day-wind">Wind: 20 km/h</div>
+              </div>
+              <div class="col-3">
+                <h3><i class="fas fa-moon"></i> Night</h3>
+                <br />
+                <div id="night-sky">Sky: Clear</div>
+                <div id="night-temp">Temperature: 19°C</div>
+                <div id="night-temp-feel">Feel temperature: 15 °C</div>
+                <div id="night-hum">Humidity: 47%</div>
+                <div id="night-wind">Wind: 20 km/h</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="end">
+          <div class="container">
+            <div class="row">
+              <div class="col-2">
+                8/22 <br />
+                Saturday <br />
+                <i class="fas fa-cloud-sun"></i> 20°C
+              </div>
+              <div class="col-2">
+                8/23 <br />
+                Sunday <br />
+                <i class="fas fa-cloud-sun"></i> 20°C
+              </div>
+              <div class="col-2">
+                8/24 <br />
+                Monday <br />
+                <i class="fas fa-cloud-sun"></i> 20°C
+              </div>
+              <div class="col-2">
+                8/25 <br />
+                Tuesday <br />
+                <i class="fas fa-cloud-sun"></i> 20°C
+              </div>
+              <div class="col-2">
+                8/26 <br />
+                Wednesday <br />
+                <i class="fas fa-cloud-sun"></i> 20°C
+              </div>
+              <div class="col-2">
+                8/27 <br />
+                Thursday <br />
+                <i class="fas fa-cloud-sun"></i> 20°C
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p>
+      <em>This page was built by</em>
+      <a
+        href="https://www.linkedin.com/in/zuzanaochmanova/"
+        target="_blank"
+        id="name"
+      >
+        <em> Zuzana Ochmanova </em>
+      </a>
+    </p>
+
+    <script src="src/script.js"></script>
   </body>
 </html>
