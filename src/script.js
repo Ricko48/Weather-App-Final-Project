@@ -24,8 +24,9 @@ function setWeatherData(city, weatherObject) {
 }
 
 function changeName(city) {
-  let h1 = document.querySelector("h1");  
-  h1.innerHTML = `${city}`;
+  let h1 = document.querySelector("h1"); 
+  let cityCapitalized = city.charAt(0).toUpperCase() + city.slice(1);
+  h1.innerHTML = `${cityCapitalized}`;
 }
 
 function changeTemp(weatherData) {
