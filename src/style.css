@@ -1,0 +1,59 @@
+#myVideo {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  opacity: 90%;
+}
+
+.app {
+  background: rgba(255, 255, 255, 0.8);
+  font-family: "Roboto Slab", serif;
+  padding: 20px 5px;
+  margin: 80px 100px 8px 100px;
+  display: block;
+  border-radius: 25px;
+  border: 1px solid black;
+  opacity: 75%;
+  position: relative;
+}
+
+.body {
+  margin: 50px auto;
+}
+
+.units {
+  color: black;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.units:hover {
+  color: black;
+  text-decoration: none;
+  transition: all 150ms ease-in-out;
+  font-weight: bold;
+}
+
+img {
+  width: 250px;
+}
+
+.end .col-2 {
+  border: 0.5px solid black;
+  border-radius: 2px;
+}
+
+p {
+  text-align: center;
+  font-size: 10px;
+  font-family: "Roboto Slab", serif;
+  color: white;
+  opacity: 80%;
+}
+
+#name {
+  color: white;
+  opacity: 80%;
+}
