@@ -29,8 +29,14 @@ function dispalyForecast(response) {
       <h7>
         ${formatHours(forecast.dt * 1000)}
       </h7>
-    
-      <div class="weather-forecast-temperature">
+      <img
+        src="http://openweathermap.org/img/wn/${
+          forecast.weather[0].icon
+        }@2x.png"
+        id = "forecast-icon";
+        width = "10px";
+      />
+          <div class="weather-forecast-temperature">
         <strong>
           ${Math.round(forecast.main.temp_max)}°
         </strong>
