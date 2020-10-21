@@ -26,24 +26,21 @@ function dispalyForecast(response) {
     forecast = response.data.list[index];
     forecastElement.innerHTML += `
     <div class="col-2">
-      <h7>
+      <h4>
         ${formatHours(forecast.dt * 1000)}
-      </h7>
+      </h4>
     
           <div class="weather-forecast-temperature">
-         
+         <strong>
+          ${Math.round(forecast.main.temp_max)}°
+        </strong>  
            <img
         src="http://openweathermap.org/img/wn/${
           forecast.weather[0].icon
         }@2x.png"
-        id = "forecast-icon"
-      />
-       </br>
-        <strong>
-          ${Math.round(forecast.main.temp_max)}°
-        </strong>  
-        ${Math.round(forecast.main.temp_min)}°
-      </div>
+        id = "forecast-icon" </>
+      <span id="forecast-min-temp">  ${Math.round(forecast.main.temp_min)}° </span>
+       </div>
     </div>
   `;
   }
@@ -54,8 +51,8 @@ function setWeatherData(city, weatherObject) {
   let weatherData = weatherObject.data;
   changeName(city);
   changeTemp(weatherData);
-  changeDay(weatherData);
-  changeNight(weatherData);
+  changeTemperatures(weatherData);
+  changeWeather(weatherData);
 }
 
 function changeName(city) {
@@ -71,35 +68,34 @@ function changeTemp(weatherData) {
   tempHeader.innerHTML = `${Math.round(temp)}`;
 }
 
-function changeDay (weatherData) {
-  document.querySelector("#temp").innerHTML = `Temperature: ${Math.round(
+function changeTemperatures (weatherData) {
+  document.querySelector("#day-temp").innerHTML = `Temperature: ${Math.round(
     weatherData.main.temp_max
   )} °C`;
   document.querySelector(
-    "#temp-feel"
+    "#feel-temp"
   ).innerHTML = `Feel temperature: ${Math.round(
     weatherData.main.feels_like
   )} °C`;
 
-  document.querySelector(
-    "#day-hum"
-  ).innerHTML = `Humidity: ${weatherData.main.humidity} %`;
-  document.querySelector("#day-wind").innerHTML = `Wind: ${Math.round(
-    weatherData.wind.speed
-  )} km/h `;
-  document.querySelector(
-    "#day-desc"
-  ).innerHTML = `Sky: ${weatherData.weather[0].main}`; 
-}
-
-function changeNight (weatherData) {
- document.querySelector(
+   document.querySelector(
     "#night-temp"
   ).innerHTML = `Temperature: ${Math.round(
     weatherData.main.temp_min
   )} °C`;
 }
 
+function changeWeather (weatherData) {
+document.querySelector(
+    "#humidity"
+  ).innerHTML = `Humidity: ${weatherData.main.humidity} %`;
+  document.querySelector("#wind").innerHTML = `Wind: ${Math.round(
+    weatherData.wind.speed
+  )} km/h `;
+  document.querySelector(
+    "#sky"
+  ).innerHTML = `Sky: ${weatherData.weather[0].main}`; 
+}
 
 function failedApiCall(error) {
   let h1 = document.querySelector("h1"); 
