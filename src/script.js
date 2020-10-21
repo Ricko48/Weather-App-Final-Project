@@ -69,7 +69,7 @@ function changeTemp(weatherData) {
 }
 
 function changeTemperatures (weatherData) {
-  document.querySelector("#day-temp").innerHTML = `Temperature: ${Math.round(
+  document.querySelector("#day-temp").innerHTML = `Day temperature: ${Math.round(
     weatherData.main.temp_max
   )} °C`;
   document.querySelector(
@@ -80,7 +80,7 @@ function changeTemperatures (weatherData) {
 
    document.querySelector(
     "#night-temp"
-  ).innerHTML = `Temperature: ${Math.round(
+  ).innerHTML = `Night temperature: ${Math.round(
     weatherData.main.temp_min
   )} °C`;
 }
