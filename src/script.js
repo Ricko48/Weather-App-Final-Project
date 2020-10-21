@@ -29,17 +29,19 @@ function dispalyForecast(response) {
       <h7>
         ${formatHours(forecast.dt * 1000)}
       </h7>
-      <img
+    
+          <div class="weather-forecast-temperature">
+         
+           <img
         src="http://openweathermap.org/img/wn/${
           forecast.weather[0].icon
         }@2x.png"
-        id = "forecast-icon";
-        width = "10px";
+        id = "forecast-icon"
       />
-          <div class="weather-forecast-temperature">
+       </br>
         <strong>
           ${Math.round(forecast.main.temp_max)}°
-        </strong>
+        </strong>  
         ${Math.round(forecast.main.temp_min)}°
       </div>
     </div>
@@ -111,14 +113,16 @@ function searchLocation(position) {
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(renameCurrentCity);
 
-  
-  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`;
-  axios.get(apiUrl).then(dispalyForecast);
+
 }
 
 function renameCurrentCity (weatherData) {
 let city = weatherData.data.name;
-setWeatherData(city, weatherData); }
+setWeatherData(city, weatherData); 
+
+ let apiKey = "17a3051593bacf7917fd288879592ec0";
+ apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(dispalyForecast);}
 
 function getCurrentLocation(event) {
   event.preventDefault();
@@ -152,8 +156,8 @@ function formatHours (timestamp) {
 let date = new Date(timestamp);
 let hours = date.getHours();
 if (hours < 10) {
-  hours = `0${hours}`;
-  let minutes = date.getMinutes();}
+  hours = `0${hours}`;}
+  let minutes = date.getMinutes();
   if (minutes < 10) {
     minutes = `0${minutes}`;
   }
