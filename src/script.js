@@ -172,6 +172,8 @@ if (hours < 10) {
   return `${hours}:${minutes}`;
 }
 
+document.getElementsByClassName("myVideo")[0].playbackRate = 0.5;
+
 let now = new Date();
 let date = now.getDate();
 let year = now.getFullYear();
