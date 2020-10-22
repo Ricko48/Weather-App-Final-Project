@@ -39,7 +39,7 @@ function dispalyForecast(response) {
           forecast.weather[0].icon
         }@2x.png"
         id = "forecast-icon" </>
-      <span id="forecast-min-temp">  ${Math.round(forecast.main.temp_min)}° </span>
+      <span id="forecast-min-temp">  ${Math.round(forecast.main.feels_like)}° </span>
        </div>
     </div>
   `;
