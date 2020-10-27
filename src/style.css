@@ -15,7 +15,7 @@
   background: rgba(255, 255, 255, 0.8);
   font-family: "Roboto Slab", serif;
   padding: 20px 5px;
-  margin: 70px 100px 8px 100px;
+  margin: 20px 15px 8px 15px;
   display: block;
   border-radius: 25px;
   border: 1px solid black;
@@ -79,4 +79,19 @@ p {
 #name {
   color: white;
   opacity: 80%;
+}
+
+@media (min-width: 576px) {
+}
+
+@media (min-width: 768px) {
+  .app {
+    margin: 70px 100px 8px 100px;
+  }
+}
+
+@media (min-width: 992px) {
+}
+
+@media (min-width: 1200px) {
 }
