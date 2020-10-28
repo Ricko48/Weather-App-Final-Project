@@ -14,7 +14,7 @@
 .app {
   background: rgba(255, 255, 255, 0.8);
   font-family: "Roboto Slab", serif;
-  padding: 20px 5px;
+  padding: 20px 10px;
   margin: 20px 15px 8px 15px;
   display: block;
   border-radius: 25px;
@@ -29,6 +29,10 @@
 
 h2 {
   padding: 0 0 0 10px;
+}
+
+h3 {
+  padding: 10% 0 0 0;
 }
 
 h4 {
@@ -55,6 +59,7 @@ h4 {
 
 .body {
   margin: 50px auto;
+  padding: 0 0 0 20%;
 }
 
 .units {
@@ -92,10 +97,28 @@ p {
   .app {
     margin: 70px 100px 8px 100px;
   }
+  .body {
+    margin: 50px auto;
+    padding: 0 0 0 0;
+  }
 }
 
 @media (min-width: 992px) {
+  .app {
+    margin: 70px 100px 8px 100px;
+  }
+  .body {
+    margin: 50px auto;
+    padding: 0 0 0 0;
+  }
 }
 
 @media (min-width: 1200px) {
+  .app {
+    margin: 70px 100px 8px 100px;
+  }
+  .body {
+    margin: 50px auto;
+    padding: 0 0 0 0;
+  }
 }
