@@ -35,7 +35,7 @@ function dispalyForecast(response) {
           ${Math.round(forecast.main.temp_max)}°
         </strong>  
            <img
-        src="http://openweathermap.org/img/wn/${
+        src="https://openweathermap.org/img/wn/${
           forecast.weather[0].icon
         }@2x.png"
         id = "forecast-icon" </>
